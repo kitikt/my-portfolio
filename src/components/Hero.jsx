@@ -1,14 +1,18 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import ClickSpark from '@blocks/ClickSpark'
+
+import CircularText from '../blocks/CircularText'
+import Magnet from '../blocks/Magnet'
+import ProfileCard from '../blocks/ProfileCard'
+import RotatingText from '../blocks/RotatingText'
 
 const Hero = () => {
   const [text, setText] = useState('')
-  const fullText = "Hi, I'm a Full Stack Developer"
+  const fullText = "Hi, I'm  Tran Gia Kiet "
   
   useEffect(() => {
     let index = 0
-    const timer = setInterval(() => {
+    const timer = setInterval(() =>{
       if (index <= fullText.length) {
         setText(fullText.slice(0, index))
         index++
@@ -30,23 +34,32 @@ const Hero = () => {
           className="hero-text"
         >
           <h1 className="typing-text">{text}<span className="cursor">|</span></h1>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2, duration: 0.8 }}
-            className="hero-subtitle"
-          >
-            I create beautiful and functional web applications
-          </motion.p>
+          <RotatingText
+            texts={[
+              "a UI/UX Designer",
+              "a Frontend Developer",
+              "a Pixel-perfect Thinker",
+              "a Design System Lover",
+              "a Code-driven Designer",
+            ]}
+            rotationInterval={2000}
+            style={{ fontSize: '2.5rem', fontWeight: 'bold', lineHeight: 1.2, color: '#fff', textShadow: '0 0 10px rgba(255,255,255,0.5)' }}
+          />
+          <CircularText
+            text="SCROLL*DOWN*TO*SEE*MORE*"
+            onHover="speedUp"
+            spinDuration={30}
+            className="custom-class"
+          />
         </motion.div>
-        
+
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1, duration: 0.8 }}
           className="hero-actions"
         >
-          <ClickSpark sparkColor='#6366f1' sparkCount={12}>
+          <Magnet padding={50} disabled={false} magnetStrength={1}>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -54,8 +67,8 @@ const Hero = () => {
             >
               View My Work
             </motion.button>
-          </ClickSpark>
-          <ClickSpark sparkColor='#fff' sparkCount={12}>
+          </Magnet>
+          <Magnet padding={50} disabled={false} magnetStrength={1}>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -63,10 +76,9 @@ const Hero = () => {
             >
               Download CV
             </motion.button>
-          </ClickSpark>
+          </Magnet>
         </motion.div>
       </div>
-      
       <motion.div
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
@@ -76,7 +88,18 @@ const Hero = () => {
         <div className="floating-card">
           <div className="code-snippet">
             <pre>
-              <code>
+            <ProfileCard
+  name="Tran Gia Kiet"
+  title="Software Engineer"
+  handle="kiettran"
+  status="Online"
+  contactText="Contact Me"
+  avatarUrl="/avatar.png"
+  showUserInfo={true}
+  enableTilt={true}
+  onContactClick={() => console.log('Contact clicked')}
+/>
+              {/* <code>
 {`function createPortfolio() {
   return {
     passion: "coding",
@@ -84,7 +107,7 @@ const Hero = () => {
     goal: "build amazing apps"
   }
 }`}
-              </code>
+              </code> */}
             </pre>
           </div>
         </div>

@@ -55,7 +55,7 @@ const Projects = () => {
         viewport={{ once: true }}
         className="section-header"
       >
-        <h2>Featured Projects</h2>
+        <h2 className="galaxy-gradient-text">Featured Projects</h2>
         <p>Here are some of my recent works</p>
       </motion.div>
 
@@ -129,13 +129,23 @@ const Projects = () => {
         viewport={{ once: true }}
         className="projects-cta"
       >
-        <motion.button
-          whileHover={{ scale: 1.05 }}
+        <motion.a
+          href="https://github.com/kitikt"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ 
+            scale: 1.05,
+            transition: { duration: 0.2 }
+          }}
           whileTap={{ scale: 0.95 }}
-          className="cta-button primary"
+          className="cta-button primary github-link"
+          title="Click to view my GitHub profile"
         >
-          View All Projects
-        </motion.button>
+          <span>View All Projects</span>
+          <span className="github-indicator">
+            → GitHub
+          </span>
+        </motion.a>
       </motion.div>
     </section>
   )

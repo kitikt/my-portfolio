@@ -17,7 +17,7 @@ const Contact = () => {
         viewport={{ once: true }}
         className="section-header"
       >
-        <h2>Get In Touch</h2>
+        <h2 className="galaxy-gradient-text">Get In Touch</h2>
         <p>Let's work together on your next project</p>
       </motion.div>
 

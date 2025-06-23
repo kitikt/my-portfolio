@@ -42,18 +42,8 @@
 
 /* --- Galaxy Gradient Text --- */
 .galaxy-gradient-text {
-  background: linear-gradient(
-    90deg,
-    #fff,
-    #445ae7,
-    #5c7a75,
-    #83ada7,
-    #9e52ef,
-
-    #80d7e0,
-    #8841e5
-  );
-  background-size: 300% 300%;
+  background: linear-gradient(90deg, #a21caf, #6366f1, #0ea5e9, #f472b6, #a21caf 90%);
+  background-size: 200% 200%;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -61,7 +51,6 @@
   animation: galaxy-text-move 4s linear infinite;
   font-weight: 800;
   letter-spacing: 1px;
-  text-shadow: 0 0 16px rgba(0, 195, 255, 0.3), 0 0 32px rgba(58, 123, 213, 0.15);
 }
 
 @keyframes galaxy-text-move {
@@ -141,12 +130,7 @@ canvas {
 .navbar-brand a {
   font-size: 1.5rem;
   font-weight: 700;
-  background: linear-gradient(90deg, #fff, #e0e0e0, #bdbdbd, #fff 80%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 10px rgba(255,255,255,0.7);
+  color: var(--accent-primary);
   text-decoration: none;
   cursor: pointer;
   transition: color 0.3s ease;
@@ -211,32 +195,11 @@ canvas {
 
 .typing-text {
   position: relative;
-  background: linear-gradient(
-    90deg,
-    #addff0,
-    #8177d0,
-    #95b2cc,
-    #6a11cb,
-    #6278f3,
-    #fff,
-    #c3d4d9
-  );
-  background-size: 300% 300%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  animation: galaxy-text-move 4s linear infinite;
-  font-weight: 800;
-  letter-spacing: 1px;
-  text-shadow: 0 0 16px rgba(0, 195, 255, 0.3), 0 0 32px rgba(58, 123, 213, 0.15);
+  color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, .5);
 }
 
 .cursor {
-  color: #fff !important;
-  -webkit-text-fill-color: #fff !important;
-  background: none !important;
-  text-shadow: 0 0 10px rgba(255,255,255,0.7);
   animation: blink 1s infinite;
 }
 
@@ -268,8 +231,8 @@ canvas {
 }
 
 .cta-button.primary {
-  background: white);
-  color: black;
+  background: var(--accent-primary);
+  color: white;
 }
 
 .cta-button.secondary {
@@ -344,7 +307,7 @@ canvas {
 .about-text h3 {
   font-size: 1.875rem;
   font-weight: 600;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   color: var(--text-tertiary);
   transition: color 0.3s ease;
 }
@@ -383,7 +346,6 @@ canvas {
 /* Timeline */
 .timeline {
   position: relative;
-  margin-top: 2rem;
 }
 
 .timeline::before {
@@ -511,8 +473,8 @@ canvas {
 }
 
 .skill-tag {
-  background: white;
-  color: black;
+  background: var(--accent-primary);
+  color: white;
   padding: 0.5rem 1rem;
   border-radius: 25px;
   font-size: 0.875rem;
@@ -883,17 +845,4 @@ canvas {
 .github-link:hover ~ .cursor,
 .github-link:hover + .cursor {
   opacity: 1 !important;
-}
-
-.pc-card:hover .pc-details h3,
-.pc-card.active .pc-details h3,
-.pc-card:hover .pc-details p,
-.pc-card.active .pc-details p {
-  background: none !important;
-  background-clip: border-box !important;
-  -webkit-background-clip: border-box !important;
-  color: #fff !important;
-  -webkit-text-fill-color: #fff !important;
-  text-shadow: 0 0 10px rgba(255,255,255,0.7) !important;
-  transition: all 0.3s;
 }

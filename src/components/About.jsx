@@ -3,22 +3,22 @@ import { motion } from 'framer-motion'
 const About = () => {
   const experiences = [
     {
-      year: '2023 - Present',
-      title: 'Senior Full Stack Developer',
-      company: 'Tech Company',
-      description: 'Leading development of web applications using React and Node.js'
+      year: '2024 - Present',
+      title: 'Full Stack Developer Intern',
+      company: 'Personal Projects / Freelance',
+      description: 'Building full-stack web applications using React.js and Node.js. Focused on real-world features, API integration, and clean architecture.'
     },
     {
-      year: '2021 - 2023',
-      title: 'Frontend Developer',
-      company: 'Startup',
-      description: 'Built responsive user interfaces and improved user experience'
+      year: '2023 - 2024',
+      title: 'Frontend Developer (Student Projects)',
+      company: 'FPT University',
+      description: 'Developed responsive UIs using React.js, worked on team projects, practiced component-based design and Git workflow.'
     },
     {
-      year: '2020 - 2021',
-      title: 'Junior Developer',
-      company: 'Digital Agency',
-      description: 'Developed websites and learned modern web technologies'
+      year: '2022 - 2023',
+      title: 'Web Development Learner',
+      company: 'FPT University',
+      description: 'Learned HTML, CSS, JavaScript and got hands-on with basic web apps. Built mini projects to strengthen foundation and logic.'
     }
   ]
 
@@ -31,7 +31,7 @@ const About = () => {
         viewport={{ once: true }}
         className="section-header"
       >
-        <h2>About Me</h2>
+        <h2 className="galaxy-gradient-text">About Me</h2>
         <p>Get to know me better</p>
       </motion.div>
 
@@ -45,9 +45,11 @@ const About = () => {
         >
           <h3>Who I Am</h3>
           <p>
-            I'm a passionate Full Stack Developer with over 3 years of experience 
-            creating web applications. I love turning complex problems into simple, 
-            beautiful, and intuitive solutions.
+          I'm a passionate Full Stack Developer Intern focused on building web applications with Node.js and React.js. I love turning ideas into simple, clean, and user-friendly products.
+
+Outside of coding, I’m always diving into new tech, learning by doing, and sharing my journey with other devs.
+
+
           </p>
           <p>
             When I'm not coding, you can find me exploring new technologies, 
@@ -64,15 +66,15 @@ const About = () => {
           >
             <div className="stat">
               <h4>3+</h4>
-              <p>Years Experience</p>
+              <p>Years Learning to Code</p>
             </div>
             <div className="stat">
-              <h4>20+</h4>
-              <p>Projects Completed</p>
+              <h4>10+</h4>
+              <p>Personal & Team Projects</p>
             </div>
             <div className="stat">
-              <h4>15+</h4>
-              <p>Happy Clients</p>
+              <h4>∞</h4>
+              <p>Curiosity and Growth Ahead</p>
             </div>
           </motion.div>
         </motion.div>

@@ -5,7 +5,7 @@ const Skills = () => {
     { name: 'React', level: 90, color: '#61dafb' },
     { name: 'JavaScript', level: 85, color: '#f7df1e' },
     { name: 'Node.js', level: 80, color: '#339933' },
-    { name: 'Python', level: 75, color: '#3776ab' },
+    { name: 'TypeScript', level: 75, color: '#3776ab' },
     { name: 'CSS/SCSS', level: 85, color: '#1572b6' },
     { name: 'Git', level: 80, color: '#f05032' }
   ]
@@ -34,7 +34,7 @@ const Skills = () => {
         viewport={{ once: true }}
         className="section-header"
       >
-        <h2>Skills & Technologies</h2>
+        <h2 className="galaxy-gradient-text">Skills & Technologies</h2>
         <p>Here are the technologies I work with</p>
       </motion.div>
 
@@ -77,7 +77,7 @@ const Skills = () => {
       >
         <h3>Other Skills</h3>
         <div className="skills-tags">
-          {['TypeScript', 'MongoDB', 'PostgreSQL', 'Docker', 'AWS', 'Figma'].map((tag, index) => (
+          {['Motion', 'MongoDB', 'Ant Design', 'Material UI', 'Charka UI', 'Figma'].map((tag, index) => (
             <motion.span
               key={tag}
               initial={{ opacity: 0, scale: 0.8 }}

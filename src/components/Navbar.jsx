@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import ThemeToggle from './ThemeToggle'
 
 const NavBar = () => {
   const scrollToSection = (sectionId) => {
@@ -21,7 +22,7 @@ const NavBar = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          YourName
+          MY PORTFOLIO
         </motion.a>
       </div>
       <ul className="navbar-menu">
@@ -36,6 +37,9 @@ const NavBar = () => {
         </motion.li>
         <motion.li whileHover={{ y: -2 }}>
           <a onClick={() => scrollToSection('contact')}>Contact</a>
+        </motion.li>
+        <motion.li whileHover={{ y: -2 }}>
+          <ThemeToggle />
         </motion.li>
       </ul>
     </motion.nav>

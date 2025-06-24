@@ -43,8 +43,10 @@ const About = () => {
           viewport={{ once: true }}
           className="about-text"
         >
-          <h3>Who I Am</h3>
+
+    
           <p>
+            
           I'm a passionate Full Stack Developer Intern focused on building web applications with Node.js and React.js. I love turning ideas into simple, clean, and user-friendly products.
 
 Outside of coding, I’m always diving into new tech, learning by doing, and sharing my journey with other devs.

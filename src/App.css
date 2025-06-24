@@ -4,15 +4,15 @@
   --bg-primary: #fafafa;
   --bg-secondary: #ffffff;
   --bg-tertiary: #f9fafb;
-  --text-primary: #333333;
-  --text-secondary: #6b7280;
-  --text-tertiary: #1f2937;
-  --accent-primary: #6366f1;
-  --accent-secondary: #667eea;
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a5568;
+  --text-tertiary: #2d3748;
+  --accent-primary: #e8ac98;
+  --accent-secondary: #a8b2dc;
   --border-color: #e5e7eb;
   --shadow-color: rgba(0, 0, 0, 0.1);
   --navbar-bg: rgba(255, 255, 255, 0.95);
-  --hero-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --hero-gradient: linear-gradient(135deg, #726a6a 0%, #000000 100%);
 }
 
 /* Dark theme colors */
@@ -21,9 +21,9 @@
   --bg-secondary: #000000;
   --bg-tertiary: #000000;
   --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
+  --text-secondary: #6f789c;
   --text-tertiary: #e2e8f0;
-  --accent-primary: #818cf8;
+  --accent-primary: #a0caf5;
   --accent-secondary: #a78bfa;
   --border-color: #222;
   --shadow-color: rgba(0, 0, 0, 0.7);
@@ -44,14 +44,13 @@
 .galaxy-gradient-text {
   background: linear-gradient(
     90deg,
-    #fff,
-    #445ae7,
-    #5c7a75,
-    #83ada7,
-    #9e52ef,
-
-    #80d7e0,
-    #8841e5
+    #ff6a00,   /* cam rực */
+    #ffb347,   /* vàng cam */
+    #ff5e62,   /* hồng cam */
+    #7f53ac,   /* tím xanh */
+    #43cea2,   /* xanh ngọc */
+    #185a9d,   /* xanh biển */
+    #ff6a00    /* lặp lại cam rực */
   );
   background-size: 300% 300%;
   background-clip: text;
@@ -61,6 +60,26 @@
   animation: galaxy-text-move 4s linear infinite;
   font-weight: 800;
   letter-spacing: 1px;
+  text-shadow: 0 0 16px rgba(228, 0, 0, 0.3), 0 0 32px rgba(219, 173, 110, 0.15);
+}
+
+.dark .galaxy-gradient-text {
+  background: linear-gradient(
+    90deg,
+    #fff,
+    #b6c0fc,
+    #6c8fe7,
+    #4374e6,
+    #9e52ef,
+    #80d7e0,
+    #8841e5
+  );
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: galaxy-text-move 4s linear infinite;
   text-shadow: 0 0 16px rgba(0, 195, 255, 0.3), 0 0 32px rgba(58, 123, 213, 0.15);
 }
 
@@ -141,15 +160,25 @@ canvas {
 .navbar-brand a {
   font-size: 1.5rem;
   font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* Light mode navbar brand - màu đen */
+:root .navbar-brand a {
+  color: #000000;
+  text-shadow: none;
+}
+
+/* Dark mode navbar brand - gradient */
+.dark .navbar-brand a {
   background: linear-gradient(90deg, #fff, #e0e0e0, #bdbdbd, #fff 80%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 10px rgba(255,255,255,0.7);
-  text-decoration: none;
-  cursor: pointer;
-  transition: color 0.3s ease;
 }
 
 .navbar-menu {
@@ -211,24 +240,41 @@ canvas {
 
 .typing-text {
   position: relative;
+  font-weight: 800;
+  letter-spacing: 1px;
+  animation: galaxy-text-move 4s linear infinite;
+
+}
+
+/* Light mode typing text - màu đơn giản */
+:root .typing-text {
+  background:white ;
+  text-shadow: 0 0 10px rgba(255,255,255,0.7);
+  color: black;
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Dark mode typing text - galaxy effect */
+.dark .typing-text {
   background: linear-gradient(
     90deg,
-    #addff0,
-    #8177d0,
-    #95b2cc,
-    #6a11cb,
-    #6278f3,
     #fff,
-    #c3d4d9
+    #445ae7,
+    #5c7a75,
+    #83ada7,
+    #9e52ef,
+    #80d7e0,
+    #8841e5
   );
   background-size: 300% 300%;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  animation: galaxy-text-move 4s linear infinite;
-  font-weight: 800;
-  letter-spacing: 1px;
   text-shadow: 0 0 16px rgba(0, 195, 255, 0.3), 0 0 32px rgba(58, 123, 213, 0.15);
 }
 
@@ -268,7 +314,22 @@ canvas {
 }
 
 .cta-button.primary {
-  background: white);
+  background: white;
+  color: black;
+  transition: all 0.3s ease;
+  width: 153.5px;
+  height :43.2px;
+}
+
+/* Light mode button primary - màu đen */
+:root .cta-button.primary {
+  background: #000000;
+  color: white;
+}
+
+/* Dark mode button primary - màu trắng */
+.dark .cta-button.primary {
+  background: white;
   color: black;
 }
 
@@ -276,6 +337,60 @@ canvas {
   background: transparent;
   color: white;
   border: 2px solid white;
+  transition: all 0.3s ease;
+  width: 153.5px;
+  height :43.2px;
+}
+
+/* Light mode button secondary - màu đen */
+:root .cta-button.secondary {
+  color: #ffffff;
+  background-color: black;
+  border: 2px solid #000000;
+}
+
+/* Dark mode button secondary - màu trắng */
+.dark .cta-button.secondary {
+  color: rgb(0, 0, 0);
+  background: white;
+  border: 2px solid white;
+}
+
+/* Hover effects */
+.cta-button.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button.secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Light mode hover effects */
+:root .cta-button.primary:hover {
+  background: #d8bfbf;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+:root .cta-button.secondary:hover {
+  background: #d8bfbf;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode hover effects */
+.dark .cta-button.primary:hover {
+  background: rgb(0, 0, 0);
+  color: rgb(222, 205, 205);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+.dark .cta-button.secondary:hover {
+  background: rgb(0, 0, 0);
+  color: rgb(222, 205, 205);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
 }
 
 .hero-image {
@@ -285,11 +400,10 @@ canvas {
 }
 
 .floating-card {
-  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 5rem;
 }
 
 .code-snippet {
@@ -511,14 +625,23 @@ canvas {
 }
 
 .skill-tag {
-  background: white;
-  color: black;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
   padding: 0.5rem 1rem;
   border-radius: 25px;
   font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.skill-tag:hover {
+  background: var(--accent-primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-color);
 }
 
 /* Projects Section */
@@ -895,5 +1018,20 @@ canvas {
   color: #fff !important;
   -webkit-text-fill-color: #fff !important;
   text-shadow: 0 0 10px rgba(255,255,255,0.7) !important;
+  transition: all 0.3s;
+}
+
+/* --- Dark mode hover effect (gộp) --- */
+.dark button:hover,
+.dark a:hover,
+.dark .cta-button:hover,
+.dark .project-card:hover,
+.dark .skill-tag:hover,
+.dark .navbar-menu a:hover,
+.dark .github-link:hover,
+.dark .social-icon:hover {
+  background: rgb(0, 0, 0) !important;
+  color: rgb(222, 205, 205) !important;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2) !important;
   transition: all 0.3s;
 }

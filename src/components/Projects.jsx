@@ -141,10 +141,8 @@ const Projects = () => {
           className="cta-button primary github-link"
           title="Click to view my GitHub profile"
         >
-          <span>View All Projects</span>
-          <span className="github-indicator">
-            → GitHub
-          </span>
+          <span>View All </span>
+       
         </motion.a>
       </motion.div>
     </section>

@@ -28,7 +28,7 @@ function App() {
             <Projects />
             <Contact />
           </main>
-          <Footer />
+          {/* <Footer /> */}
         </ClickSpark>
       </div>
     </ThemeProvider>

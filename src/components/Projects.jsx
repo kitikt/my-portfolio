@@ -4,29 +4,29 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'E-Commerce Platform',
+      title:'Resonance',
       description: 'A full-stack e-commerce application built with React, Node.js, and MongoDB',
-      image: 'https://via.placeholder.com/400x250/6366f1/ffffff?text=E-Commerce',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      github: '#',
+      image: '/resonance.png',
+      technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'PayOS'],
+      github: 'https://github.com/kitikt/sdn-',
       live: '#'
     },
     {
       id: 2,
-      title: 'Task Management App',
-      description: 'A collaborative task management tool with real-time updates',
-      image: 'https://via.placeholder.com/400x250/10b981/ffffff?text=Task+App',
-      technologies: ['React', 'Socket.io', 'Express', 'PostgreSQL'],
-      github: '#',
+      title: 'Cook Book',
+      description: 'A full-stack application built with React, Node.js, and MongoDB',
+      image: '/cook.png',
+      technologies: ['React-Native', 'Node.js', 'MongoDB', ],
+      github: 'https://github.com/kitikt/Recipe-App',
       live: '#'
     },
     {
       id: 3,
       title: 'Portfolio Website',
       description: 'A modern portfolio website with animations and responsive design',
-      image: 'https://via.placeholder.com/400x250/f59e0b/ffffff?text=Portfolio',
-      technologies: ['React', 'Framer Motion', 'CSS3', 'Vite'],
-      github: '#',
+      image: '/portfolio.png',
+      technologies: ['React', 'React Bits', 'Framer Motion', 'CSS3', 'Vite'],
+      github: 'https://github.com/kitikt/my-portfolio',
       live: '#'
     }
   ]

@@ -2,10 +2,8 @@ import { motion } from 'framer-motion'
 
 const Contact = () => {
   const socialLinks = [
-    { name: 'GitHub', url: '#', icon: '🐙' },
-    { name: 'LinkedIn', url: '#', icon: '💼' },
-    { name: 'Twitter', url: '#', icon: '🐦' },
-    { name: 'Email', url: 'mailto:your@email.com', icon: '📧' }
+    { name: 'GitHub', url: 'https://github.com/kitikt', icon: '🐙' },
+    { name: 'Email', url: 'trangiakit1010@gmail.com', icon: '📧' }
   ]
 
   return (
@@ -48,7 +46,7 @@ const Contact = () => {
               <span className="contact-icon">📧</span>
               <div>
                 <h4>Email</h4>
-                <p>your@email.com</p>
+                <p>trangiakit1010@gmail.com</p>
               </div>
             </div>
             
@@ -56,7 +54,7 @@ const Contact = () => {
               <span className="contact-icon">📱</span>
               <div>
                 <h4>Phone</h4>
-                <p>+84 123 456 789</p>
+                <p>+84 934501071</p>
               </div>
             </div>
           </div>

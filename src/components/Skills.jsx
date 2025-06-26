@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion'
+import ScrollVelocity from '../blocks/ScrollVelocity'
+import { SiFigma, SiMongodb, SiAntdesign, SiMui, SiChakraui } from "react-icons/si";
 
 const Skills = () => {
   const skills = [
@@ -24,6 +26,14 @@ const Skills = () => {
     hidden: { opacity: 0, x: -50 },
     visible: { opacity: 1, x: 0 }
   }
+
+  const otherSkills = [
+    <><SiFigma /> Figma</>,
+    <><SiMongodb /> MongoDB</>,
+    <><SiAntdesign /> Ant Design</>,
+    <><SiMui /> Material UI</>,
+    <><SiChakraui /> Chakra UI</>,
+  ]
 
   return (
     <section className="skills" id="skills">
@@ -54,6 +64,7 @@ const Skills = () => {
             <div className="skill-header">
               <span className="skill-name">{skill.name}</span>
               <span className="skill-level">{skill.level}%</span>
+              
             </div>
             <div className="progress-bar">
               <motion.div
@@ -76,20 +87,11 @@ const Skills = () => {
         className="skills-extra"
       >
         <h3>Other Skills</h3>
-        <div className="skills-tags">
-          {['Motion', 'MongoDB', 'Ant Design', 'Material UI', 'Charka UI', 'Figma'].map((tag, index) => (
-            <motion.span
-              key={tag}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ scale: 1.1 }}
-              className="skill-tag"
-            >
-              {tag}
-            </motion.span>
-          ))}
-        </div>
+        <ScrollVelocity
+          texts={otherSkills}
+          velocity={100}
+          className="custom-scroll-text"
+        />
       </motion.div>
     </section>
   )

@@ -136,7 +136,8 @@ export const ScrollVelocity = ({
           parallaxStyle={parallaxStyle}
           scrollerStyle={scrollerStyle}
         >
-          {text}&nbsp;
+          {text}
+          &nbsp;
         </VelocityText>
       ))}
     </section>

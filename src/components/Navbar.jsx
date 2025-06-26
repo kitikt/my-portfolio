@@ -1,7 +1,30 @@
 import { motion } from 'framer-motion'
 import ThemeToggle from './ThemeToggle'
+import { useRef, useEffect } from 'react'
 
 const NavBar = () => {
+  const navbarRef = useRef(null)
+  const lastScrollPosRef = useRef(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset
+      const navbar = navbarRef.current
+      if (navbar) {
+        if (scrollTop > lastScrollPosRef.current) {
+          navbar.style.transition = 'all 0.4s ease'
+          navbar.style.transform = 'translateY(-100%)'
+        } else {
+          navbar.style.transition = 'all 0.6s ease'
+          navbar.style.transform = 'translateY(0)'
+        }
+      }
+      lastScrollPosRef.current = scrollTop
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId)
     if (element) {
@@ -12,6 +35,7 @@ const NavBar = () => {
   return (
     <motion.nav 
       className="navbar"
+      ref={navbarRef}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8 }}

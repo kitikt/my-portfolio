@@ -5,7 +5,7 @@
   position: relative;
   height: 180px;
   font-weight: bold;
-  color: #fff;
+  color: #411c1c;
   font-weight: 900;
   text-align: center;
   cursor: pointer;
@@ -22,4 +22,10 @@
   bottom: 0;
   font-size: 24px;
   transition: all 0.5s cubic-bezier(0, 0, 0, 1);
+}
+.circular-text.custom-class span {
+  color: inherit !important;
+}
+.dark .circular-text {
+  color: #fff; /* hoặc màu bạn muốn cho dark mode */
 }

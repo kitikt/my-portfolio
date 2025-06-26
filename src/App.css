@@ -5,14 +5,14 @@
   --bg-secondary: #ffffff;
   --bg-tertiary: #f9fafb;
   --text-primary: #1a1a1a;
-  --text-secondary: #4a5568;
+  --text-secondary: #000000;
   --text-tertiary: #2d3748;
   --accent-primary: #e8ac98;
   --accent-secondary: #a8b2dc;
   --border-color: #e5e7eb;
   --shadow-color: rgba(0, 0, 0, 0.1);
   --navbar-bg: rgba(255, 255, 255, 0.95);
-  --hero-gradient: linear-gradient(135deg, #726a6a 0%, #000000 100%);
+  --hero-gradient: linear-gradient(135deg, #726a6a 0%, #d6d0d0 100%);
 }
 
 /* Dark theme colors */
@@ -28,7 +28,7 @@
   --border-color: #222;
   --shadow-color: rgba(0, 0, 0, 0.7);
   --navbar-bg: rgba(0, 0, 0, 0.95);
-  --hero-gradient: linear-gradient(135deg, #000 0%, #222 100%);
+  --hero-gradient: linear-gradient(135deg, #332929 0%, #222 100%);
   background: #000 !important;
   background-size: unset !important;
   animation: none !important;
@@ -248,8 +248,8 @@ canvas {
 
 /* Light mode typing text - màu đơn giản */
 :root .typing-text {
-  background:white ;
-  text-shadow: 0 0 10px rgba(255,255,255,0.7);
+  background:rgb(21, 21, 21) ;
+  text-shadow: 0 0 10px rgba(122, 117, 117, 0.7);
   color: black;
   background-size: 300% 300%;
   background-clip: text;
@@ -333,6 +333,14 @@ canvas {
   color: black;
 }
 
+/* Dark mode hover: sáng lên với glow trắng */
+.dark .cta-button.primary:hover {
+  background: #fff;
+  color: #222;
+  box-shadow: 0 0 64px 24px #fff, 0 0 32px 8px #fff, 0 4px 24px rgba(255,255,255,0.5);
+  transition: all 0.3s;
+}
+
 .cta-button.secondary {
   background: transparent;
   color: white;
@@ -358,6 +366,7 @@ canvas {
 
 /* Hover effects */
 .cta-button.primary:hover {
+  
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
@@ -747,14 +756,42 @@ canvas {
   gap: 0.5rem;
 }
 
+/* Light mode tech-tag */
 .tech-tag {
-  background: var(--bg-tertiary);
-  color: var(--text-secondary);
-  padding: 0.25rem 0.75rem;
+  background: #f3f6fa;
+  color: #2d3748;
+  border: 1.5px solid #e0e7ef;
+  font-weight: 600;
+  box-shadow: 0 2px 8px #e0e7ef33;
+  padding: 0.35rem 1rem;
   border-radius: 15px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
+  font-size: 0.85rem;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  margin: 0.2em;
+}
+.tech-tag:hover {
+  background: #b9a99b;
+  color: #fff;
+  box-shadow: 0 4px 24px #a8b2dc88, 0 2px 8px #a8b2dc44;
+  border-color: #a8b2dc;
+}
+
+/* Dark mode tech-tag */
+.dark .tech-tag {
+  background: #181a20;
+  color: #a0caf5;
+  border: 1.5px solid #23272f;
+  font-weight: 600;
+  box-shadow: 0 2px 8px #23272f55;
+}
+.dark .tech-tag:hover {
+  background: linear-gradient(90deg, #232526 0%, #414345 100%);
+  color: #fff;
+  box-shadow: 0 0 16px #80d7e0, 0 2px 8px #23272f99;
+  border-color: #80d7e0;
 }
 
 .projects-cta {
@@ -861,6 +898,32 @@ canvas {
   box-shadow: 0 10px 25px var(--shadow-color);
   transition: all 0.3s ease;
 }
+.contact {
+  box-shadow: 0 0 80px 0 #a78bfa22 inset;
+}
+
+:root .contact-info, :root .contact-form {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid #e5e7eb;
+  padding: 2rem;
+}
+
+:root .contact-info h3,
+:root .contact-info p,
+:root .contact-details,
+:root .contact-item h4,
+:root .contact-item p,
+:root .social-links h4 {
+  color: #222 !important;
+}
+
+:root .contact .section-header h2 {
+  filter: drop-shadow(0 2px 8px #a78bfa33);
+}
+
 
 .form-group {
   margin-bottom: 1.5rem;
@@ -1021,17 +1084,140 @@ canvas {
   transition: all 0.3s;
 }
 
-/* --- Dark mode hover effect (gộp) --- */
+/* --- DARK MODE UNIVERSAL HOVER GLOW --- */
 .dark button:hover,
-.dark a:hover,
 .dark .cta-button:hover,
+.dark .submit-button:hover,
 .dark .project-card:hover,
 .dark .skill-tag:hover,
 .dark .navbar-menu a:hover,
 .dark .github-link:hover,
 .dark .social-icon:hover {
-  background: rgb(0, 0, 0) !important;
-  color: rgb(222, 205, 205) !important;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2) !important;
+  background: #000 !important;
+  color: #ba9b88 !important;
+  box-shadow: 0 0 32px 8px #a78bfa, 0 2px 12px 0 #80d7e0 !important;
   transition: all 0.3s;
+}
+
+/* Glassmorphism for contact info and form */
+.contact-info, .contact-form {
+  background: rgba(30, 30, 40, 0.55);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255,255,255,0.18);
+  padding: 2rem;
+}
+
+/* Gradient and glow for social icons */
+.social-icon {
+  background: linear-gradient(135deg, #a78bfa 0%, #43cea2 100%);
+  color: #fff;
+  box-shadow: 0 2px 12px 0 rgba(162, 28, 175, 0.25);
+  transition: box-shadow 0.3s, transform 0.3s, background 0.3s;
+}
+.social-icon:hover {
+  box-shadow: 0 0 24px 8px #a78bfa, 0 2px 12px 0 #43cea2;
+  background: linear-gradient(135deg, #43cea2 0%, #a78bfa 100%);
+  transform: scale(1.18) rotate(-6deg);
+}
+
+/* Animated border on focus for form inputs */
+.form-group input:focus, .form-group textarea:focus {
+  border: 2px solid #a78bfa;
+  box-shadow: 0 0 8px #a78bfa44;
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+/* Gradient text for section-header h2 in contact */
+.contact .section-header h2 {
+  /* background: linear-gradient(90deg, #a78bfa, #43cea2, #a0caf5);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent; */
+  filter: drop-shadow(0 2px 8px #a78bfa88);
+}
+
+/* Glow effect for submit button on hover */
+.submit-button:hover {
+  box-shadow: 0 0 24px 8px #a78bfa, 0 2px 12px 0 #43cea2;
+  background: linear-gradient(90deg, #a78bfa, #43cea2);
+  color: #fff;
+  border: none;
+  transition: all 0.3s;
+}
+
+/* Subtle box-shadow for contact section */
+.contact {
+  box-shadow: 0 0 80px 0 #a78bfa22 inset;
+}
+
+:root .social-icon {
+  background: linear-gradient(135deg, #e8ac98 0%, #a8b2dc 100%);
+  color: #fff;
+  box-shadow: 0 2px 12px 0 #e8ac9833;
+}
+:root .social-icon:hover {
+  background: linear-gradient(135deg, #a8b2dc 0%, #e8ac98 100%);
+  box-shadow: 0 0 24px 8px #a8b2dc, 0 2px 12px 0 #e8ac98;
+}
+
+:root .form-group input,
+:root .form-group textarea {
+  border: 2px solid #e5e7eb;
+  background: #fff;
+  color: #222;
+}
+
+/* --- DARK MODE CONTACT FORM IMPROVEMENTS --- */
+.dark .contact-info, .dark .contact-form {
+  background: rgba(24, 24, 32, 0.92);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(80, 80, 160, 0.18);
+  backdrop-filter: blur(10px);
+  border: 1.5px solid #23272f;
+  padding: 2rem;
+}
+
+.dark .contact-info h3,
+.dark .contact-info p,
+.dark .contact-details,
+.dark .contact-item h4,
+.dark .contact-item p,
+.dark .social-links h4 {
+  color: #e2e8f0 !important;
+}
+
+.dark .form-group label {
+  color: #a0caf5;
+}
+
+.dark .form-group input,
+.dark .form-group textarea {
+  border: 2px solid #23272f;
+  background: #181a20;
+  color: #e2e8f0;
+}
+
+.dark .form-group input:focus,
+.dark .form-group textarea:focus {
+  border: 2px solid #80d7e0;
+  box-shadow: 0 0 8px #80d7e044;
+}
+
+.dark .submit-button {
+  background: linear-gradient(90deg, #80d7e0, #a78bfa);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 2px 8px #80d7e033;
+  transition: all 0.3s;
+}
+
+.dark .submit-button:hover {
+  background: linear-gradient(90deg, #a78bfa, #80d7e0);
+  color: #fff;
+  box-shadow: 0 0 24px 8px #a78bfa, 0 2px 12px 0 #80d7e0;
 }

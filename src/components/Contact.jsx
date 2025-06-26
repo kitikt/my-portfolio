@@ -72,6 +72,7 @@ const Contact = () => {
                   transition={{ delay: index * 0.1 }}
                   viewport={{ once: true }}
                   className="social-icon"
+                  aria-label={social.name}
                 >
                   <span>{social.icon}</span>
                 </motion.a>

@@ -1,4 +1,18 @@
+import { SiReact, SiCss3, SiVite, SiFramer, SiNodedotjs, SiMongodb, SiExpress } from "react-icons/si";
 import { motion } from 'framer-motion'
+
+const techIcons = {
+  "React": <SiReact color="#61dafb" />,
+  "React Bits": <SiReact color="#61dafb" />,
+  "Framer Motion": <SiFramer color="#e64bfa" />,
+  "CSS3": <SiCss3 color="#1572b6" />,
+  "Vite": <SiVite color="#646cff" />,
+  "Node.js": <SiNodedotjs color="#339933" />,
+  "MongoDB": <SiMongodb color="#47A248" />,
+  "Express": <SiExpress color="#000" />,
+  "PayOS": null,
+  "React-Native": <SiReact color="#61dafb" />,
+};
 
 const Projects = () => {
   const projects = [
@@ -105,16 +119,14 @@ const Projects = () => {
               <h3>{project.title}</h3>
               <p>{project.description}</p>
               <div className="project-tech">
-                {project.technologies.map((tech, index) => (
-                  <motion.span
+                {project.technologies.map((tech) => (
+                  <span
                     key={tech}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: index * 0.1 }}
                     className="tech-tag"
                   >
+                    {techIcons[tech] && <span style={{ fontSize: "1.1em", display: "flex", alignItems: "center" }}>{techIcons[tech]}</span>}
                     {tech}
-                  </motion.span>
+                  </span>
                 ))}
               </div>
             </div>

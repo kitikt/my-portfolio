@@ -1,30 +1,17 @@
-import { motion } from 'framer-motion'
+import Folder from "../blocks/Folder"
 
 const Contact = () => {
-  const socialLinks = [
-    { name: 'GitHub', url: 'https://github.com/kitikt', icon: '🐙' },
-    { name: 'Email', url: 'trangiakit1010@gmail.com', icon: '📧' }
-  ]
-
   return (
     <section className="contact" id="contact">
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
+      <div
         className="section-header"
       >
         <h2 className="galaxy-gradient-text">Get In Touch</h2>
         <p>Let's work together on your next project</p>
-      </motion.div>
+      </div>
 
       <div className="contact-content">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+        <div
           className="contact-info"
         >
           <h3>Let's Connect</h3>
@@ -57,92 +44,69 @@ const Contact = () => {
                 <p>+84 934501071</p>
               </div>
             </div>
-          </div>
-
-          <div className="social-links">
-            <h4>Follow Me</h4>
-            <div className="social-icons">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={social.name}
-                  href={social.url}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  whileHover={{ scale: 1.2, y: -5 }}
-                  transition={{ delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="social-icon"
-                  aria-label={social.name}
-                >
-                  <span>{social.icon}</span>
-                </motion.a>
-              ))}
+            <div style={{ position: 'relative', height: '120px', marginTop: '40px' }}>
+              <div style={{
+                position: 'absolute',
+                left: '50%',
+                bottom: 0,
+                transform: 'translateX(-50%)'
+              }}>
+                <Folder size={2} color="#6c5da8" className="custom-folder" items={[
+                  <img key="recipe" src="/RecipeApp.png" alt="Recipe App" style={{width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit', display: 'block'}} />,
+                  <img key="resonance" src="/resonance.png" alt="Resonance Music" style={{width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit', display: 'block'}} />,
+                  <img key="portfolio" src="/portfolio.png" alt="Portfolio Website" style={{width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit', display: 'block'}} />
+                ]} />
+              </div>
             </div>
           </div>
-        </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+ 
+        </div>
+
+        <div
           className="contact-form"
         >
-          <form>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+          <form
+            action="https://formsubmit.co/trangiakit1010@gmail.com"
+            method="POST"
+          >
+            <input type="hidden" name="_captcha" value="false" />
+            <div
               className="form-group"
             >
               <label htmlFor="name">Name</label>
               <input type="text" id="name" name="name" required />
-            </motion.div>
+            </div>
             
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
+            <div
               className="form-group"
             >
               <label htmlFor="email">Email</label>
               <input type="email" id="email" name="email" required />
-            </motion.div>
+            </div>
             
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
+            <div
               className="form-group"
             >
               <label htmlFor="subject">Subject</label>
               <input type="text" id="subject" name="subject" required />
-            </motion.div>
+            </div>
             
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
+            <div
               className="form-group"
             >
               <label htmlFor="message">Message</label>
               <textarea id="message" name="message" rows="5" required></textarea>
-            </motion.div>
+            </div>
             
-            <motion.button
+            <button
               type="submit"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
               className="submit-button"
             >
               Send Message
-            </motion.button>
+            </button>
           </form>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

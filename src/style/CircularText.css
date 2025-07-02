@@ -1,9 +1,9 @@
 .circular-text {
   margin: 0 auto;
   border-radius: 50%;
-  width: 100px;
+  width: 200px;
   position: relative;
-  height: 180px;
+  height: 200px;
   font-weight: bold;
   color: #411c1c;
   font-weight: 900;
@@ -11,6 +11,9 @@
   cursor: pointer;
   transform-origin: 50% 50%;
   -webkit-transform-origin: 50% 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .circular-text span {
@@ -28,4 +31,24 @@
 }
 .dark .circular-text {
   color: #fff; /* hoặc màu bạn muốn cho dark mode */
+}
+
+.circular-arrow-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+  z-index: 2;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circular-text-letters {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }

@@ -10,6 +10,16 @@ const Hero = () => {
   const [text, setText] = useState('')
   const fullText = "Hi, I'm  Tran Gia Kiet "
   
+  const handleArrowClick = () => {
+    const aboutSection = document.querySelector('.about');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+  
   useEffect(() => {
     let index = 0
     const timer = setInterval(() =>{
@@ -32,6 +42,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="hero-text"
+          viewport={{ once: false, amount: 0.3 }}
         >
           <h1 className="typing-text">{text}<span className="cursor">|</span></h1>
           <RotatingText
@@ -50,6 +61,7 @@ const Hero = () => {
             onHover="speedUp"
             spinDuration={30}
             className="custom-class"
+            onArrowClick={handleArrowClick}
           />
         </motion.div>
 
@@ -58,6 +70,7 @@ const Hero = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1, duration: 0.8 }}
           className="hero-actions"
+          viewport={{ once: false, amount: 0.3 }}
         >
           <Magnet padding={50} disabled={false} magnetStrength={1}>
             <motion.button
@@ -84,6 +97,7 @@ const Hero = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1.5, duration: 0.8 }}
         className="hero-image"
+        viewport={{ once: false, amount: 0.3 }}
       >
         <div className="floating-card">
           <div className="code-snippet">

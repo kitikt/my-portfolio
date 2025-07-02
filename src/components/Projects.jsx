@@ -66,7 +66,7 @@ const Projects = () => {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
+        viewport={{ once: false, amount: 0.3 }}
         className="section-header"
       >
         <h2 className="galaxy-gradient-text">Featured Projects</h2>
@@ -77,7 +77,7 @@ const Projects = () => {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: false, amount: 0.3 }}
         className="projects-grid"
       >
         {projects.map((project) => (
@@ -138,7 +138,7 @@ const Projects = () => {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.5 }}
-        viewport={{ once: true }}
+        viewport={{ once: false, amount: 0.3 }}
         className="projects-cta"
       >
         <motion.a

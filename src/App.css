@@ -106,6 +106,16 @@ body {
 
 .App {
   min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+main {
+  scroll-snap-type: y mandatory;
+}
+
+section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 /* ClickSpark Canvas */

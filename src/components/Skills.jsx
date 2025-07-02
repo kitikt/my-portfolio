@@ -41,7 +41,7 @@ const Skills = () => {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
+        viewport={{ once: false, amount: 0.3 }}
         className="section-header"
       >
         <h2 className="galaxy-gradient-text">Skills & Technologies</h2>
@@ -52,7 +52,7 @@ const Skills = () => {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: false, amount: 0.3 }}
         className="skills-grid"
       >
         {skills.map((skill, index) => (
@@ -83,7 +83,7 @@ const Skills = () => {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.5 }}
-        viewport={{ once: true }}
+        viewport={{ once: false, amount: 0.3 }}
         className="skills-extra"
       >
         <h3>Other Skills</h3>

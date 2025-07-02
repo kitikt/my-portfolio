@@ -28,7 +28,7 @@ const About = () => {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
+        viewport={{ once: false, amount: 0.3 }}
         className="section-header"
       >
         <h2 className="galaxy-gradient-text">About Me</h2>
@@ -40,7 +40,7 @@ const About = () => {
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.3 }}
           className="about-text"
         >
 
@@ -49,7 +49,7 @@ const About = () => {
             
           I'm a passionate Full Stack Developer Intern focused on building web applications with Node.js and React.js. I love turning ideas into simple, clean, and user-friendly products.
 
-Outside of coding, I’m always diving into new tech, learning by doing, and sharing my journey with other devs.
+Outside of coding, I'm always diving into new tech, learning by doing, and sharing my journey with other devs.
 
 
           </p>
@@ -63,7 +63,7 @@ Outside of coding, I’m always diving into new tech, learning by doing, and sha
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: 0.3 }}
             className="about-stats"
           >
             <div className="stat">
@@ -85,7 +85,7 @@ Outside of coding, I’m always diving into new tech, learning by doing, and sha
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.3 }}
           className="about-experience"
         >
           <h3>Experience</h3>
@@ -96,7 +96,7 @@ Outside of coding, I’m always diving into new tech, learning by doing, and sha
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
+                viewport={{ once: false, amount: 0.3 }}
                 className="timeline-item"
               >
                 <div className="timeline-marker"></div>

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { motion, useAnimation, useMotionValue } from "framer-motion";
-
-    import "../style/CircularText.css";
+import ArrowButton from "./ArrowButton";
+import "../style/CircularText.css";
 
 const getRotationTransition = (duration, from, loop = true) => ({
   from,
@@ -26,6 +26,7 @@ const CircularText = ({
   spinDuration = 20,
   onHover = "speedUp",
   className = "",
+  onArrowClick,
 }) => {
   const letters = Array.from(text);
   const controls = useAnimation();

@@ -1,5 +1,7 @@
 import { SiReact, SiCss3, SiVite, SiFramer, SiNodedotjs, SiMongodb, SiExpress } from "react-icons/si";
 import { motion } from 'framer-motion'
+import { useState } from 'react';
+import ProjectDetailDrawer from './ProjectDetailDrawer';
 
 const techIcons = {
   "React": <SiReact color="#61dafb" />,
@@ -15,6 +17,9 @@ const techIcons = {
 };
 
 const Projects = () => {
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
   const projects = [
     {
       id: 1,
@@ -23,7 +28,8 @@ const Projects = () => {
       image: '/resonance.png',
       technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'PayOS'],
       github: 'https://github.com/kitikt/sdn-',
-      live: '#'
+      live: '#',
+      video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     },
     {
       id: 2,
@@ -60,6 +66,16 @@ const Projects = () => {
     visible: { opacity: 1, y: 0 }
   }
 
+  const handleProjectClick = (project) => {
+    setSelectedProject(project);
+    setDrawerOpen(true);
+  };
+
+  const handleCloseDrawer = () => {
+    setDrawerOpen(false);
+    setTimeout(() => setSelectedProject(null), 400); // chờ animation xong mới clear
+  };
+
   return (
     <section className="projects" id="projects">
       <motion.div
@@ -86,6 +102,8 @@ const Projects = () => {
             variants={cardVariants}
             whileHover={{ y: -10 }}
             className="project-card"
+            onClick={() => handleProjectClick(project)}
+            style={{ cursor: 'pointer' }}
           >
             <div className="project-image">
               <img src={project.image} alt={project.title} />
@@ -100,6 +118,7 @@ const Projects = () => {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     className="project-link github"
+                    onClick={e => { e.preventDefault(); e.stopPropagation(); window.open(project.github, '_blank'); }}
                   >
                     GitHub
                   </motion.a>
@@ -108,6 +127,7 @@ const Projects = () => {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     className="project-link live"
+                    onClick={e => { e.preventDefault(); e.stopPropagation(); if(project.live && project.live !== '#') window.open(project.live, '_blank'); }}
                   >
                     Live Demo
                   </motion.a>
@@ -157,6 +177,7 @@ const Projects = () => {
        
         </motion.a>
       </motion.div>
+      <ProjectDetailDrawer project={selectedProject} open={drawerOpen} onClose={handleCloseDrawer} />
     </section>
   )
 }

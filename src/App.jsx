@@ -1,4 +1,5 @@
 import './App.css'
+import { useState, useEffect } from 'react'
 import NavBar from '@components/Navbar'
 import Hero from '@components/Hero'
 import About from '@components/About'
@@ -7,9 +8,29 @@ import Projects from '@components/Projects'
 import Contact from '@components/Contact'
 import Footer from '@components/Footer'
 import ClickSpark from '@blocks/ClickSpark'
+import LoadingScreen from '@components/LoadingScreen'
 import { ThemeProvider } from '@context/ThemeContext'
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Giả lập loading 3 giây, có thể thay bằng fetch dữ liệu thực tế
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <ThemeProvider>
+        <LoadingScreen />
+      </ThemeProvider>
+    );
+  }
+
   return (
     <ThemeProvider>
       <div className="App">

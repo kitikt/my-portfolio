@@ -46,6 +46,7 @@ const Projects = () => {
       image: '/portfolio.png',
       technologies: ['React', 'React Bits', 'Framer Motion', 'CSS3', 'Vite'],
       github: 'https://github.com/kitikt/my-portfolio',
+      video: 'https://www.youtube.com/embed/fc3tFUG-onY',
       live: '#'
     }
   ]
@@ -74,7 +75,7 @@ const Projects = () => {
   };
   const handleCloseMenu = () => {
     setMenuOpen(false);
-    setTimeout(() => setSelectedProject(null), 300); // đợi hiệu ứng đóng
+    setTimeout(() => setSelectedProject(null), 300);
   };
 
   return (

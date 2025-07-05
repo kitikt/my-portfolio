@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import Lottie from 'lottie-react';
 import loadingAnimation from '../assets/loading.json';
-import './LoadingScreen.css';
+import '../style/LoadingScreen.css';
 
 const LoadingScreen = () => {
   return (

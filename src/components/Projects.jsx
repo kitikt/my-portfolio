@@ -1,7 +1,8 @@
 import { SiReact, SiCss3, SiVite, SiFramer, SiNodedotjs, SiMongodb, SiExpress } from "react-icons/si";
 import { motion } from 'framer-motion'
 import { useState } from 'react';
-import ProjectDetailDrawer from './ProjectDetailDrawer';
+import ProjectDetailMenu from './ProjectDetailMenu';
+
 
 const techIcons = {
   "React": <SiReact color="#61dafb" />,
@@ -17,8 +18,6 @@ const techIcons = {
 };
 
 const Projects = () => {
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [drawerOpen, setDrawerOpen] = useState(false);
 
   const projects = [
     {
@@ -36,7 +35,7 @@ const Projects = () => {
       title: 'Cook Book',
       description: 'A full-stack application built with React, Node.js, and MongoDB',
       image: '/cook.png',
-      technologies: ['React-Native', 'Node.js', 'MongoDB', ],
+      technologies: ['React-Native', 'Node.js', 'MongoDB', 'Expo'],
       github: 'https://github.com/kitikt/Recipe-App',
       live: '#'
     },
@@ -47,6 +46,7 @@ const Projects = () => {
       image: '/portfolio.png',
       technologies: ['React', 'React Bits', 'Framer Motion', 'CSS3', 'Vite'],
       github: 'https://github.com/kitikt/my-portfolio',
+      video: 'https://www.youtube.com/embed/fc3tFUG-onY',
       live: '#'
     }
   ]
@@ -66,14 +66,16 @@ const Projects = () => {
     visible: { opacity: 1, y: 0 }
   }
 
-  const handleProjectClick = (project) => {
-    setSelectedProject(project);
-    setDrawerOpen(true);
-  };
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleCloseDrawer = () => {
-    setDrawerOpen(false);
-    setTimeout(() => setSelectedProject(null), 400); // chờ animation xong mới clear
+  const handleOpenMenu = (project) => {
+    setSelectedProject(project);
+    setMenuOpen(true);
+  };
+  const handleCloseMenu = () => {
+    setMenuOpen(false);
+    setTimeout(() => setSelectedProject(null), 300);
   };
 
   return (
@@ -102,8 +104,8 @@ const Projects = () => {
             variants={cardVariants}
             whileHover={{ y: -10 }}
             className="project-card"
-            onClick={() => handleProjectClick(project)}
             style={{ cursor: 'pointer' }}
+            onClick={() => handleOpenMenu(project)}
           >
             <div className="project-image">
               <img src={project.image} alt={project.title} />
@@ -118,7 +120,7 @@ const Projects = () => {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     className="project-link github"
-                    onClick={e => { e.preventDefault(); e.stopPropagation(); window.open(project.github, '_blank'); }}
+                  
                   >
                     GitHub
                   </motion.a>
@@ -127,7 +129,7 @@ const Projects = () => {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     className="project-link live"
-                    onClick={e => { e.preventDefault(); e.stopPropagation(); if(project.live && project.live !== '#') window.open(project.live, '_blank'); }}
+                  
                   >
                     Live Demo
                   </motion.a>
@@ -177,7 +179,12 @@ const Projects = () => {
        
         </motion.a>
       </motion.div>
-      <ProjectDetailDrawer project={selectedProject} open={drawerOpen} onClose={handleCloseDrawer} />
+      
+      <ProjectDetailMenu
+        open={menuOpen}
+        onClose={handleCloseMenu}
+        project={selectedProject}
+      />
     </section>
   )
 }

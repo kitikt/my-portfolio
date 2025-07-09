@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useTheme } from '@context/ThemeContext';
 import '../style/ProjectDetailMenu.css';
 
 const TABS = {
@@ -9,6 +10,7 @@ const TABS = {
 const ProjectDetailMenu = ({ open, onClose, project }) => {
   const overlayRef = useRef();
   const [tab, setTab] = useState(TABS.IMAGE);
+  const { isDark } = useTheme();
 
   useEffect(() => {
     if (!open) return;
@@ -32,7 +34,7 @@ const ProjectDetailMenu = ({ open, onClose, project }) => {
 
   return (
     <div
-      className={`pdm-overlay ${open ? 'pdm-open' : ''}`}
+      className={`pdm-overlay ${open ? 'pdm-open' : ''} ${isDark ? 'pdm-dark' : 'pdm-light'}`}
       ref={overlayRef}
       onClick={handleOverlayClick}
     >

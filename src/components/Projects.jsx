@@ -35,7 +35,7 @@ const Projects = () => {
       title: 'Cook Book',
       description: 'A full-stack application built with React, Node.js, and MongoDB',
       image: '/cook.png',
-      technologies: ['React-Native', 'Node.js', 'MongoDB', ],
+      technologies: ['React-Native', 'Node.js', 'MongoDB', 'Expo'],
       github: 'https://github.com/kitikt/Recipe-App',
       live: '#'
     },

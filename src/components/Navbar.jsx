@@ -1,10 +1,10 @@
-import { motion } from 'framer-motion'
 import ThemeToggle from './ThemeToggle'
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 
 const NavBar = () => {
   const navbarRef = useRef(null)
   const lastScrollPosRef = useRef(0)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,48 +25,80 @@ const NavBar = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId)
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
+      setMenuOpen(false)
+    }
+  }
+
+  // Đóng menu khi click overlay ngoài menu
+  const handleOverlayClick = (e) => {
+    if (e.target.classList.contains('navbar-overlay')) {
+      setMenuOpen(false)
     }
   }
 
   return (
-    <motion.nav 
+    <nav 
       className="navbar"
       ref={navbarRef}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8 }}
     >
       <div className="navbar-brand">
-        <motion.a 
+        <a 
           href="/"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
         >
           MY PORTFOLIO
-        </motion.a>
+        </a>
       </div>
       <ul className="navbar-menu">
-        <motion.li whileHover={{ y: -2 }}>
+        <li>
           <a onClick={() => scrollToSection('about')}>About</a>
-        </motion.li>
-        <motion.li whileHover={{ y: -2 }}>
+        </li>
+        <li>
           <a onClick={() => scrollToSection('skills')}>Skills</a>
-        </motion.li>
-        <motion.li whileHover={{ y: -2 }}>
+        </li>
+        <li>
           <a onClick={() => scrollToSection('projects')}>Projects</a>
-        </motion.li>
-        <motion.li whileHover={{ y: -2 }}>
+        </li>
+        <li>
           <a onClick={() => scrollToSection('contact')}>Contact</a>
-        </motion.li>
-        <motion.li whileHover={{ y: -2 }}>
+        </li>
+        <li>
           <ThemeToggle />
-        </motion.li>
+        </li>
       </ul>
-    </motion.nav>
+      {/* Hamburger icon for responsive */}
+      <button className={`navbar-hamburger${menuOpen ? ' open' : ''}`} onClick={() => setMenuOpen(!menuOpen)} aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      {/* Responsive menu overlay */}
+      {menuOpen && (
+        <div className="navbar-overlay" onClick={handleOverlayClick}>
+          <div className="navbar-overlay-menu-wrapper">
+            <ul className="navbar-overlay-menu">
+              <li><button className="drawer-menu-btn" onClick={() => scrollToSection('about')}>About</button></li>
+              <li><button className="drawer-menu-btn" onClick={() => scrollToSection('skills')}>Skills</button></li>
+              <li><button className="drawer-menu-btn" onClick={() => scrollToSection('projects')}>Projects</button></li>
+              <li><button className="drawer-menu-btn" onClick={() => scrollToSection('contact')}>Contact</button></li>
+            </ul>
+          </div>
+        </div>
+      )}
+    </nav>
   )
 }
 

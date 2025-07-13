@@ -1,8 +1,7 @@
 import { SiReact, SiCss3, SiVite, SiFramer, SiNodedotjs, SiMongodb, SiExpress } from "react-icons/si";
-import { motion } from 'framer-motion'
 import { useState } from 'react';
 import ProjectDetailMenu from './ProjectDetailMenu';
-
+import { motion } from 'framer-motion';
 
 const techIcons = {
   "React": <SiReact color="#61dafb" />,
@@ -28,7 +27,7 @@ const Projects = () => {
       technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'PayOS'],
       github: 'https://github.com/kitikt/sdn-',
       live: '#',
-      video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+      video: 'https://www.youtube.com/embed/sw8160VMtnc',
     },
     {
       id: 2,
@@ -37,7 +36,8 @@ const Projects = () => {
       image: '/cook.png',
       technologies: ['React-Native', 'Node.js', 'MongoDB', 'Expo'],
       github: 'https://github.com/kitikt/Recipe-App',
-      live: '#'
+      live: '#',
+      video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     },
     {
       id: 3,

@@ -68,7 +68,7 @@ const ProjectDetailMenu = ({ open, onClose, project }) => {
             {tab === TABS.VIDEO && hasVideo && (
               <div className="pdm-video-wrapper">
                 <iframe
-                  src={project.video}
+                  src={project.video + (project.video.includes('?') ? '&' : '?') + 'autoplay=1'}
                   title="Demo Video"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

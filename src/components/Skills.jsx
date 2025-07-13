@@ -1,31 +1,80 @@
 import { motion } from 'framer-motion'
 import ScrollVelocity from '../blocks/ScrollVelocity'
-import { SiFigma, SiMongodb, SiAntdesign, SiMui, SiChakraui } from "react-icons/si";
+import { 
+  SiFigma, 
+  SiMongodb, 
+  SiAntdesign, 
+  SiMui, 
+  SiChakraui,
+  SiReact,
+  SiJavascript,
+  SiNodedotjs,
+  SiTypescript,
+  SiCss3,
+  SiGit,
+  SiHtml5,
+  SiTailwindcss
+} from "react-icons/si";
 
 const Skills = () => {
   const skills = [
-    { name: 'React', level: 90, color: '#61dafb' },
-    { name: 'JavaScript', level: 85, color: '#f7df1e' },
-    { name: 'Node.js', level: 80, color: '#339933' },
-    { name: 'TypeScript', level: 75, color: '#3776ab' },
-    { name: 'CSS/SCSS', level: 85, color: '#1572b6' },
-    { name: 'Git', level: 80, color: '#f05032' }
-  ]
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
+    { 
+      name: 'React', 
+      level: 'Advanced', 
+      icon: <SiReact />, 
+      color: '#61dafb',
+      description: 'Modern React with Hooks, Context, and Performance optimization'
+    },
+    { 
+      name: 'JavaScript', 
+      level: 'Advanced', 
+      icon: <SiJavascript />, 
+      color: '#f7df1e',
+      description: 'ES6+, Async/Await, DOM manipulation, and modern JS patterns'
+    },
+    { 
+      name: 'Node.js', 
+      level: 'Intermediate', 
+      icon: <SiNodedotjs />, 
+      color: '#339933',
+      description: 'Server-side development, Express.js, and RESTful APIs'
+    },
+    { 
+      name: 'TypeScript', 
+      level: 'Intermediate', 
+      icon: <SiTypescript />, 
+      color: '#3776ab',
+      description: 'Type safety, interfaces, and advanced TypeScript features'
+    },
+    { 
+      name: 'CSS/SCSS', 
+      level: 'Advanced', 
+      icon: <SiCss3 />, 
+      color: '#1572b6',
+      description: 'Responsive design, animations, and modern CSS techniques'
+    },
+    { 
+      name: 'Git', 
+      level: 'Intermediate', 
+      icon: <SiGit />, 
+      color: '#f05032',
+      description: 'Version control, branching strategies, and collaboration'
+    },
+    { 
+      name: 'HTML5', 
+      level: 'Advanced', 
+      icon: <SiHtml5 />, 
+      color: '#e34f26',
+      description: 'Semantic HTML, accessibility, and modern web standards'
+    },
+    { 
+      name: 'Tailwind CSS', 
+      level: 'Intermediate', 
+      icon: <SiTailwindcss />, 
+      color: '#06b6d4',
+      description: 'Utility-first CSS framework and responsive design'
     }
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: { opacity: 1, x: 0 }
-  }
+  ]
 
   const otherSkills = [
     <><SiFigma /> Figma</>,
@@ -34,6 +83,34 @@ const Skills = () => {
     <><SiMui /> Material UI</>,
     <><SiChakraui /> Chakra UI</>,
   ]
+
+  const getLevelColor = (level) => {
+    switch (level) {
+      case 'Advanced':
+        return '#10b981' // green
+      case 'Intermediate':
+        return '#f59e0b' // amber
+      case 'Beginner':
+        return '#ef4444' // red
+      default:
+        return '#6b7280' // gray
+    }
+  }
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  }
 
   return (
     <section className="skills" id="skills">
@@ -55,26 +132,31 @@ const Skills = () => {
         viewport={{ once: false, amount: 0.3 }}
         className="skills-grid"
       >
-        {skills.map((skill, index) => (
+        {skills.map((skill) => (
           <motion.div
             key={skill.name}
             variants={itemVariants}
-            className="skill-item"
+            className="skill-card"
+            whileHover={{ 
+              y: -5,
+              transition: { duration: 0.2 }
+            }}
           >
-            <div className="skill-header">
-              <span className="skill-name">{skill.name}</span>
-              <span className="skill-level">{skill.level}%</span>
-              
+            <div className="skill-card-header">
+              <div className="skill-icon" style={{ color: skill.color }}>
+                {skill.icon}
+              </div>
+              <div className="skill-info">
+                <h3 className="skill-name">{skill.name}</h3>
+                <span 
+                  className="skill-level-badge"
+                  style={{ backgroundColor: getLevelColor(skill.level) }}
+                >
+                  {skill.level}
+                </span>
+              </div>
             </div>
-            <div className="progress-bar">
-              <motion.div
-                className="progress-fill"
-                initial={{ width: 0 }}
-                whileInView={{ width: `${skill.level}%` }}
-                transition={{ duration: 1, delay: index * 0.1 }}
-                style={{ backgroundColor: skill.color }}
-              />
-            </div>
+            <p className="skill-description">{skill.description}</p>
           </motion.div>
         ))}
       </motion.div>

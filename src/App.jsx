@@ -8,6 +8,7 @@ import Projects from '@components/Projects'
 import Contact from '@components/Contact'
 import Footer from '@components/Footer'
 import ClickSpark from '@blocks/ClickSpark'
+import AdvancedParallaxBackground from '@blocks/AdvancedParallaxBackground'
 import LoadingScreen from '@components/LoadingScreen'
 import { ThemeProvider } from '@context/ThemeContext'
 
@@ -34,6 +35,7 @@ function App() {
   return (
     <ThemeProvider>
       <div className="App">
+        <AdvancedParallaxBackground />
         <ClickSpark
           sparkColor='#fff'
           sparkSize={10}

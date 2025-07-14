@@ -32,6 +32,7 @@ const ProjectDetailMenu = ({ open, onClose, project }) => {
   if (!open || !project) return null;
 
   const hasVideo = !!project.video;
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 900;
 
   return (
     <div
@@ -64,13 +65,21 @@ const ProjectDetailMenu = ({ open, onClose, project }) => {
         <div className="pdm-body">
           <div className="pdm-media-wrapper">
             {tab === TABS.IMAGE && (
-              <CircularGallery
-                items={
-                  Array.isArray(project.image)
-                    ? project.image.map(img => ({ image: img, text: project.title }))
-                    : [{ image: project.image, text: project.title }]
-                }
-              />
+              isMobile ? (
+                <img
+                  src={Array.isArray(project.image) ? project.image[0] : project.image}
+                  alt={project.title}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 12 }}
+                />
+              ) : (
+                <CircularGallery
+                  items={
+                    Array.isArray(project.image)
+                      ? project.image.map(img => ({ image: img, text: project.title }))
+                      : [{ image: project.image, text: project.title }]
+                  }
+                />
+              )
             )}
             {tab === TABS.VIDEO && hasVideo && (
               <div className="pdm-video-wrapper">

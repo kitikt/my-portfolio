@@ -77,6 +77,7 @@ const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="cta-button primary"
+              onClick={() => window.open('https://github.com/kitikt', '_blank')}
             >
               View My Work
             </motion.button>

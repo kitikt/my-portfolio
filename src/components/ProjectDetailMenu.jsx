@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useTheme } from '@context/ThemeContext';
 import '../style/ProjectDetailMenu.css';
+import CircularGallery from '../blocks/CircularGallery';
 
 const TABS = {
   IMAGE: 'Hình ảnh',
@@ -14,7 +15,7 @@ const ProjectDetailMenu = ({ open, onClose, project }) => {
 
   useEffect(() => {
     if (!open) return;
-    setTab(TABS.IMAGE); // reset tab mỗi lần mở
+    setTab(TABS.IMAGE); 
     const handleEsc = (e) => {
       if (e.key === 'Escape') onClose();
     };
@@ -63,7 +64,13 @@ const ProjectDetailMenu = ({ open, onClose, project }) => {
         <div className="pdm-body">
           <div className="pdm-media-wrapper">
             {tab === TABS.IMAGE && (
-              <img src={project.image} alt={project.title} className="pdm-image" />
+              <CircularGallery
+                items={
+                  Array.isArray(project.image)
+                    ? project.image.map(img => ({ image: img, text: project.title }))
+                    : [{ image: project.image, text: project.title }]
+                }
+              />
             )}
             {tab === TABS.VIDEO && hasVideo && (
               <div className="pdm-video-wrapper">

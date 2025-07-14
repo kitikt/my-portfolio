@@ -23,7 +23,13 @@ const Projects = () => {
       id: 1,
       title:'Resonance',
       description: 'A full-stack e-commerce application built with React, Node.js, and MongoDB',
-      image: '/resonance.png',
+      image: [
+        '/resonance1.png',
+        '/resonance2.png',
+        '/resonance3.png',
+        '/resonance4.png',
+        '/resonance5.png',
+      ],
       technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'PayOS'],
       github: 'https://github.com/kitikt/sdn-',
       live: '#',
@@ -31,23 +37,37 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: 'Cook Book',
-      description: 'A full-stack application built with React, Node.js, and MongoDB',
-      image: '/cook.png',
-      technologies: ['React-Native', 'Node.js', 'MongoDB', 'Expo'],
-      github: 'https://github.com/kitikt/Recipe-App',
-      live: '#',
-      video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    },
-    {
-      id: 3,
       title: 'Portfolio Website',
       description: 'A modern portfolio website with animations and responsive design',
-      image: '/portfolio.png',
+      image: [
+        '/portfolio1.png',
+        '/portfolio2.png',
+        '/portfolio3.png',
+        '/portfolio4.png',
+        '/portfolio5.png',
+      ],
       technologies: ['React', 'React Bits', 'Framer Motion', 'CSS3', 'Vite'],
       github: 'https://github.com/kitikt/my-portfolio',
       video: 'https://www.youtube.com/embed/fc3tFUG-onY',
       live: '#'
+    },
+    {
+      id: 3,
+      title: 'Cook Book',
+      description: 'A full-stack application built with React, Node.js, and MongoDB',
+      image: [
+        '/RecipeApp.png',
+        '/RecipeApp1.png',
+        '/RecipeApp2.png',
+        '/RecipeApp3.png',
+        '/RecipeApp4.png',
+        '/RecipeApp5.png',
+        '/RecipeApp6.png',
+      ],
+      technologies: ['React-Native', 'Node.js', 'MongoDB', 'Expo'],
+      github: 'https://github.com/kitikt/Recipe-App',
+      live: '#',
+      video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     }
   ]
 
@@ -108,7 +128,7 @@ const Projects = () => {
             onClick={() => handleOpenMenu(project)}
           >
             <div className="project-image">
-              <img src={project.image} alt={project.title} />
+              <img src={Array.isArray(project.image) ? project.image[0] : project.image} alt={project.title} />
               <div className="project-overlay">
                 <motion.div
                   initial={{ opacity: 0 }}

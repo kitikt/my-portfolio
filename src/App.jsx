@@ -1,5 +1,6 @@
 import './App.css'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { track } from '@vercel/analytics';
 import NavBar from '@components/Navbar'
 import Hero from '@components/Hero'
 import About from '@components/About'
@@ -13,6 +14,38 @@ import LoadingScreen from '@components/LoadingScreen'
 import { ThemeProvider } from '@context/ThemeContext'
 
 function App() {
+  // --- TRACK TIME ON PAGE ---
+  useEffect(() => {
+    const start = Date.now();
+    const handleUnload = () => {
+      const duration = Math.round((Date.now() - start) / 1000);
+      track('time_on_page', { duration });
+    };
+    window.addEventListener('beforeunload', handleUnload);
+    return () => {
+      handleUnload();
+      window.removeEventListener('beforeunload', handleUnload);
+    };
+  }, []);
+
+  // --- TRACK SCROLL COUNT ---
+  const scrollCount = useRef(0);
+  useEffect(() => {
+    const onScroll = () => {
+      scrollCount.current += 1;
+    };
+    window.addEventListener('scroll', onScroll);
+    const handleUnload = () => {
+      track('scroll_count', { count: scrollCount.current });
+    };
+    window.addEventListener('beforeunload', handleUnload);
+    return () => {
+      handleUnload();
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('beforeunload', handleUnload);
+    };
+  }, []);
+
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

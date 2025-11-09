@@ -36,20 +36,6 @@ const Contact = () => {
                 <p>Ho Chi Minh City, Vietnam</p>
               </div>
             </div>
-            <div className="contact-item">
-              <span className="contact-icon">📧</span>
-              <div>
-                <h4>Email</h4>
-                <p>trangiakit1010@gmail.com</p>
-              </div>
-            </div>
-            <div className="contact-item">
-              <span className="contact-icon">📱</span>
-              <div>
-                <h4>Phone</h4>
-                <p>+84 934501071</p>
-              </div>
-            </div>
             <motion.div
               style={{ position: 'relative', height: '120px', marginTop: '40px' }}
               initial={{ scale: 0.7, opacity: 0, y: 60 }}
@@ -81,7 +67,7 @@ const Contact = () => {
           viewport={{ once: false, amount: 0.3 }}
         >
           <form
-            action="https://formsubmit.co/trangiakit1010@gmail.com"
+            action="https://formsubmit.co/your-email@example.com"
             method="POST"
           >
             <input type="hidden" name="_captcha" value="false" />
